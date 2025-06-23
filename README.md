@@ -1,129 +1,49 @@
-# Cloud Data Engineering & Advanced Analytics Portfolio
+# Data Engineering Stack Portfolio
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)](https://www.python.org/)
-[![Jupyter](https://img.shields.io/badge/Jupyter-F37626?logo=jupyter)](https://jupyter.org)
+![Airflow](https://img.shields.io/badge/Airflow-017CEE?logo=apache-airflow&logoColor=white)
+![Spark](https://img.shields.io/badge/Spark-E25A1C?logo=apachespark&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?logo=postgresql&logoColor=white)
+![Great Expectations](https://img.shields.io/badge/GreatExpectations-000000?logo=python&label=Great%20Expectations&logoColor=white)
+![API](https://img.shields.io/badge/API-FF6F00?logo=fastapi&logoColor=white)
+
 
 ## Repository Structure
 
 ```
 /
-├── DataAnalysis/
-│   ├── notebooks/      # Jupyter notebooks (see subfolder structure below)
-│   ├── scripts/        # Python analysis scripts
-│   ├── models/         # Serialized ML models
-│   └── datasets/       # Sample data (CSV/Parquet/Feather)
 ├── DataEngineering/
-│   ├── airflow_dags/   # Orchestration workflows
-│   ├── spark_jobs/     # PySpark/Scala processing
-│   └── pipelines/      # ETL pipeline configurations # Key Learning Project (end-to-end implementation)
-|   └── Data Models/    # Database Designs and Datawarehouse Modelling
-├── KLP/                
-│   ├── documentation/  # Technical specs & diagrams
-│   ├── datasets/           
-│   └── scripts/          
+│   ├── airflow_taskScheduler/     # Apache Airflow DAGs & scheduling workflows
+│   ├── pyspark/                   # PySpark jobs and transformation logic
+│   ├── DWHmodelling/              # Database design & data warehouse schemas
+│   ├── projects_python_scripts/   # Python scripts for ETL/data ops
+│   ├── api_webscraping/           # APIs, crawling and data collection scripts
+│   └── assets/                    # Images, diagrams, or templates
 ├── .gitignore
-├── README.md
 ├── cleanup.bat
-└── requirements.txt
-```
+├── requirements.txt
+└── README.md
 
-## Notebook Organization (Recommended)
-
-```bash
-DataAnalysis/notebooks/
-├── exploratory/       # Initial data exploration
-├── reports/           # Final analysis notebooks
-├── experimental/      # Hypothesis testing
-└── archive/           # Old/inactive notebooks
 ```
 
 ## Key Components
 
-### 1. Data Analysis
+### 1. Data Engineering
 
-| Feature                | Description |
-|------------------------|-------------|
-| **Machine Learning**   | Scikit-learn pipelines & model evaluation |
-| **Visualization**      | Plotly/Matplotlib/Seaborn dashboards |
-| **EDA**               | Automated Pandas Profiling reports |
-| **SQL Integration**    | Querying structured data |
+ | Feature              | Description                                                   |
+|----------------------|---------------------------------------------------------------|
+| **Data Models**      | Database and data warehouse schema design (star/snowflake)    |
+| **Airflow**          | DAG-based orchestration and task scheduling                   |
+| **Spark**            | Distributed data processing and transformation                |
+| **Data Quality**     | Great Expectations for rule-based validation and profiling    |
+| **APIs & Webscraping**| Collecting structured/unstructured data from web & endpoints |
 
-
-```python
-import pandas as pd
-from pandasql import sqldf
-
-df = pd.read_csv("data.csv")
-sqldf("SELECT * FROM df WHERE age > 30")
-```
-
-### 2. Data Engineering
-
- Feature                        | Description |
-|------------------------------|------------------------------|
-| **Data Models**             | Databse desing and modelling , Datawarehousing modelling |
-| **Airflow**                  | DAGs for workflow orchestration |
-| **Spark**                    | Distributed processing jobs |
-| **Data Quality**             | Great Expectations validations |
-| **Cloud Data Pipeline**         | AWS implementation |
-| **Machine Learning Lifecycle**  | Model training, evaluation, and deployment |
-| **CI/CD Deployment**            | Automated integration and deployment |
-
-### 3. KIP Project
-#### Key Features:
-
-| Feature                        | Description |
-|---------------------------------|-------------|
-| **Product/Store Data Collection** | Using **Places API**, **Map API**, **Yelp Dataset**, and **Web Scraping** to integrate store/product-related data |
-| **Market Competitive Analysis** | NLP-based sentiment analysis and competitor benchmarking |
-| **Product Analysis**            | Time-series forecasting and clustering algorithms for trend insights |
-
-
-## Installation
-
-```bash
-# Clone with large file support
-git clone https://github.com/yourusername/DataPortfolio.git --config core.longpaths=true
-
-# Install analysis dependencies
-pip install -r requirements.txt \
-  scikit-learn \
-  plotly \
-  pandasql \
-  jupyterlab
-```
-
-## Notebook Setup
-
-```bash
-# Start Jupyter Lab
-jupyter lab --ip=0.0.0.0 --port=8888
-```
-
-Typical notebook structure:
-
-```
-# % Title
-## 1. Business Objective
-## 2. Data Loading
-## 3. Exploratory Analysis
-## 4. Feature Engineering
-## 5. Model Development
-## 6. Insights & Recommendations
-```
 
 ## Workflow Example
 
 ```bash
-# 1. Explore data
-jupyter lab DataAnalysis/notebooks/exploratory/data_profiling.ipynb
-
-# 2. Process data
+# 1. 
 python DataEngineering/pipelines/data_cleaning.py
-
-# 3. Run KiP project
-cd KIP && make run
-```
 
 ## Maintenance
 
@@ -133,4 +53,3 @@ cleanup.bat
 cleanup.sh
 
 ```
-https://github.com/EswarDivi/OpeninColab-Kaggle
