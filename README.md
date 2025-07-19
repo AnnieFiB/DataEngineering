@@ -12,23 +12,24 @@
 
 ```
 /
-├── DataEngineering/
-│── airflow_dags/     # Apache Airflow DAGs & scheduling workflows
-│   ├── app/
-│   ├── dags/
-│   ├── Dockerfile
-│   └── requirements.txt
-│── pyspark/                   # PySpark jobs and transformation logic
-│── DWHmodelling/              # Database design & data warehouse schemas
-│── projects_python_scripts/   # Python scripts for ETL/data ops
-│── API_WebScr/           # APIs, crawling and data collection scripts
-│   └── Dockerfile
-│── assets/                    # Images, diagrams, or templates
-├── .gitignore
-├── cleanup.bat
-├── requirements.txt
-├── docker-compose.yml         # Master Compose file
-└── README.md
+│──DataEngineering/
+     |
+     │── airflow_dags/     # Apache Airflow DAGs & scheduling workflows
+     │   ├── app/
+     │   ├── dags/
+     │   ├── Dockerfile
+     │   └── requirements.txt
+     │── pyspark/                   # PySpark jobs and transformation logic
+     │── DWHmodelling/              # Database design & data warehouse schemas
+     │── projects_python_scripts/   # Python scripts for ETL/data ops
+     │── API_WebScr/           # APIs, crawling and data collection scripts
+     │   └── Dockerfile
+     │── assets/                    # Images, diagrams, or templates
+     ├── .gitignore
+     ├── cleanup.bat
+     ├── requirements.txt
+     ├── docker-compose.yml         # Master Compose file
+     └── README.md
 
 
 ```
