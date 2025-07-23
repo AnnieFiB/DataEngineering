@@ -29,6 +29,7 @@ myenv/
 .env/
 .venv/
 pip-wheel-metadata/
+dags_airflow_venv/
 
 # Jupyter runtime
 *.nbconvert.ipynb

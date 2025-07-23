@@ -2,8 +2,11 @@ FROM bitnami/spark:latest
 
 WORKDIR /app
 
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
 COPY . .
 
-# CMD ["spark-submit", "--master", "local", "your_script.py"]
+RUN chmod +x start.sh
 
-# Replace 'your_script.py' with the actual script you want to run
+CMD ["./start.sh"]
