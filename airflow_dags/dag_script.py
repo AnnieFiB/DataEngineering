@@ -1,18 +1,17 @@
-from datetime import timedelta
+from datetime import timedelta, datetime
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
-from datetime import datetime
-from Extraction import extraction 
-from Transformation import transformation
-from Loading import loading
+from extraction import run_extraction 
+from transformation import run_transformation
+from loading import run_loading
 
 
 
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
-    'start_date': datetime(2025, 7, 19),
+    'start_date': datetime(2025, 7, 22),
     'email': 'gwitanniemona@outlook.com',
     'email_on_failure': False,
     'email_on_retry': False,
@@ -21,26 +20,26 @@ default_args = {
 }
 
 dag = DAG(
-    'real_zipco_dag',
+    'zipco_foods_pipeline',
     default_args=default_args,
     description='Zipco batch etl pipeline'
 )
 
 extraction = PythonOperator(
     task_id='extraction_layer',
-    python_callable=extraction,
+    python_callable=run_extraction,
     dag=dag,
 )
 
 transformation = PythonOperator(
     task_id='transformation_layer',
-    python_callable=transformation,
+    python_callable=run_transformation,
     dag=dag,
 )
 
 loading = PythonOperator(
     task_id='loading_layer',
-    python_callable=loading,
+    python_callable=run_loading,
     dag=dag,
 )
 

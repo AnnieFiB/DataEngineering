@@ -8,9 +8,9 @@ import os
 # Load environment variables from .env file
 load_dotenv()
 
-def loading(dfs):
- 
-    print("/n Starting data loading to Azure Blob Storage...")
+def run_loading(dfs):
+
+    print("/n Starting data load to Azure Blob Storage...")
 
     # Create Azure connection string and container name and a BlobServiceClient object
     connect_str = os.getenv('ZIPCO_AZURE_STORAGE_CONNECTION_STRING')
@@ -20,7 +20,6 @@ def loading(dfs):
 
     # Load data to Azure Blob Storage
    
-
     # Upload Multiple DataFrames as CSVs In-Memory
     for name, df in dfs.items():
         csv_buffer = StringIO()
@@ -28,9 +27,9 @@ def loading(dfs):
         blob_client = blob_service_client.get_blob_client(container=container_name, blob=f"{name}.csv")
         blob_client.upload_blob(csv_buffer.getvalue(), overwrite=True)
         print(f" Uploaded {name}.csv into Azure Blob Storage")
-      
-    print("Data loading to Azure Blob Storage completed successfully.")
-    
+
+    print("Data load to Azure Blob Storage completed successfully.")
+
 # Alternative: Upload Multiple DataFrames as Parquet Files In-Memory
 # for name, df in dfs.items():
 #     buffer = BytesIO()

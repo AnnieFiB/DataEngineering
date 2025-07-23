@@ -1,6 +1,6 @@
 import pandas as pd
 
-def extraction():
+def run_extraction():
     try:
         df = pd.read_csv(r'zipco_transaction.csv')
         print("Data loaded successfully!")
@@ -10,3 +10,4 @@ def extraction():
         df = pd.DataFrame()  # Return an empty DataFrame on error
 
     return df
+
