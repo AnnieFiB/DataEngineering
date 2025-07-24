@@ -1,12 +1,14 @@
 from datetime import timedelta, datetime
 from airflow import DAG
-from airflow.operators.python_operator import PythonOperator
+from airflow.operators.python import PythonOperator
 from airflow.utils.dates import days_ago
-from extraction import run_extraction 
+from extraction import run_extraction
 from transformation import run_transformation
 from loading import run_loading
 
 
+# Airflow DAG for Zipco Foods ETL Pipeline
+# This DAG orchestrates the extraction, transformation, and loading of data for Zipco Foods.
 
 default_args = {
     'owner': 'airflow',
@@ -20,9 +22,10 @@ default_args = {
 }
 
 dag = DAG(
-    'zipco_foods_pipeline',
+    "zipco_foods_pipeline",
     default_args=default_args,
-    description='Zipco batch etl pipeline'
+    schedule=timedelta(days=1),
+    catchup=False
 )
 
 extraction = PythonOperator(
