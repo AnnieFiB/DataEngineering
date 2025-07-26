@@ -24,7 +24,8 @@ default_args = {
 dag = DAG(
     'real_zipco_dag',
     default_args=default_args,
-    description='Zipco batch etl pipeline'
+    description='Zipco batch etl pipeline',
+    schedule_interval=None
 )
 
 extraction = PythonOperator(
