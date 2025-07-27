@@ -1,17 +1,16 @@
 import pandas as pd
 from azure.storage.blob import BlobServiceClient
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 import os
 from io import StringIO
 
 
 
 def loading(data, products, customers, staff, transactions):
-    base_path = os.path.join(os.getenv("AIRFLOW_HOME", "."), "dags")
-    # Load environment variables from .env file
-    load_dotenv(dotenv_path=os.path.join(base_path, ".env"))
-    
-    connect_str = os.getenv('ZIPCO_AZURE_STORAGE_CONNECTION_STRING')
+    base_path = os.path.dirname(os.path.abspath(__file__))
+    load_dotenv(find_dotenv())
+
+    connect_str = os.getenv('AZURE_STORAGE_CONNECTION_STRING')
     container_name = os.getenv('zipco_container_name')
 
     blob_service_client = BlobServiceClient.from_connection_string(connect_str)

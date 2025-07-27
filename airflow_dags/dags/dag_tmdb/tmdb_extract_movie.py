@@ -2,10 +2,11 @@ import os
 import requests
 import pandas as pd
 from datetime import datetime
-from utils import get_file_path, load_environment_variables  
+from dotenv import load_dotenv, find_dotenv
 
 # Load environment variables
-load_environment_variables()  # Load variables from .env file
+load_dotenv(find_dotenv()) 
+base_path = os.path.dirname(os.path.abspath(__file__))
 
 TMDB_API_KEY = os.getenv("TMDB_API_KEY")
 TMDB_AUTH_TOKEN = os.getenv("TMDB_API_READ_ACCESS_TOKEN_AUTH")
@@ -49,7 +50,7 @@ def extract_movie_data(start, end):
         df_new['batch_id'] = f"batch_{start}_{end}"
         df_new['timestamp'] = datetime.now().isoformat()
 
-        file_path = get_file_path("allmovies.csv")
+        file_path = os.path.join(base_path, "allmovies.csv")
 
         if os.path.exists(file_path):
             df_existing = pd.read_csv(file_path)

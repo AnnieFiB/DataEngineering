@@ -1,14 +1,14 @@
 from airflow.decorators import dag, task
 from datetime import datetime
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv 
 
 # Import your ETL functions here
-from IM_extraction import extraction
-from IM_transformation import transformation
-from IM_loading import loading
+from dag_zipco_inMem.IM_extraction import extraction
+from dag_zipco_inMem.IM_transformation import transformation
+from dag_zipco_inMem.IM_loading import loading
 
-load_dotenv(dotenv_path=os.path.join(os.getenv("AIRFLOW_HOME", "."), "airflow_dags", ".env"))
+load_dotenv(find_dotenv())
 
 @dag(
     schedule_interval=None,

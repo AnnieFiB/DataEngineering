@@ -4,9 +4,9 @@ from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
 from datetime import datetime
-from extraction_zipco import extraction # here we import  the function from our etl script
-from transformation_zipco import transformation
-from loading_zipco import loading
+from dag_zipco.extraction_zipco import extraction
+from dag_zipco.transformation_zipco import transformation
+from dag_zipco.loading_zipco import loading
 
 
 

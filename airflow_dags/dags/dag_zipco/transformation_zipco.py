@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 def transformation():
-    base_path = os.path.join(os.getenv("AIRFLOW_HOME", "."), "dags")
+    base_path = os.path.dirname(os.path.abspath(__file__))
     input_file = os.path.join(base_path, "zipco_transaction.csv")
     
     data = pd.read_csv(input_file)

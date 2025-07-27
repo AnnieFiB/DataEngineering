@@ -1,13 +1,13 @@
 import pandas as pd
 from sqlalchemy import create_engine, Column, Integer, String, Float, DateTime, text
 from sqlalchemy.orm import declarative_base, sessionmaker
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 import os
 
 Base = declarative_base()
 
 # Load environment variables
-load_dotenv()
+load_dotenv(find_dotenv())
 
 # Postgres Connection URL (either dynamically retrieved or from the environment variables)
 def get_postgres_conn():

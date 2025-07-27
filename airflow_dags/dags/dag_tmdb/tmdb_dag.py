@@ -4,15 +4,14 @@ from datetime import datetime, timedelta
 import os
 import pandas as pd
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
-from utils import load_environment_variables
+from dotenv import load_dotenv, find_dotenv
 
-# Import the tasks from their respective modules
-from tmdb_extract_movie import extract_movie_data
-from tmdb_transform_movie import transform_movies
-from tmdb_load_movie import load_to_db
+from dag_tmdb.tmdb_extract_movie import extract_movie_data
+from dag_tmdb.tmdb_transform_movie import transform_movies
+from dag_tmdb.tmdb_load_movie import load_to_db
 
 
-load_environment_variables()
+load_dotenv(find_dotenv())  # Load environment variables from .env file 
 
 default_args = {
     'owner': 'airflow',
@@ -46,7 +45,7 @@ def upload_to_azure(df, file_name: str):
     Upload the cleaned CSV to Azure Blob Storage.
     """
     # Retrieve Azure connection string and container name from environment variables
-    connect_str = os.getenv("TMDB_AZURE_STORAGE_CONNECTION_STRING")
+    connect_str = os.getenv("AZURE_STORAGE_CONNECTION_STRING")
     container_name = os.getenv("TMDB_container_name")
 
     if connect_str is None or container_name is None:
@@ -71,7 +70,7 @@ def load_task_func(**kwargs):
     # Get the transformed data from XCom
     transformed_data = kwargs['ti'].xcom_pull(task_ids='transform_task', key='transformed_data')
     if transformed_data is not None:
-        db_url = os.getenv("BASE_URL")  # Assuming the DB URL is set in your .env file
+        db_url = os.getenv("BASE_URL")  # Retrieve the database URL from environment variables
         load_to_db(transformed_data, db_url, table_name="movies")
 
         # After loading to DB, upload the cleaned data to Azure
