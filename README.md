@@ -2,11 +2,13 @@
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)](https://www.python.org/)
 ![Airflow](https://img.shields.io/badge/Airflow-017CEE?logo=apache-airflow&logoColor=white)
-![Spark](https://img.shields.io/badge/Spark-E25A1C?logo=apachespark&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?logo=postgresql&logoColor=white)
-![Great Expectations](https://img.shields.io/badge/GreatExpectations-000000?logo=python&label=Great%20Expectations&logoColor=white)
 ![API](https://img.shields.io/badge/API-FF6F00?logo=fastapi&logoColor=white)
-
+![PySpark](https://img.shields.io/badge/PySpark-2C2D72?logo=apache-spark&logoColor=white)
+![Azure](https://img.shields.io/badge/Azure-0078D4?logo=microsoft-azure&logoColor=white)
+[![Apache Beam](https://img.shields.io/badge/Apache%20Beam-latest-orange?logo=apache&logoColor=white)](https://beam.apache.org/)
+[![Google Cloud](https://img.shields.io/badge/Google%20Cloud-4285F4?logo=googlecloud&logoColor=white)](https://cloud.google.com/)
+[![AWS](https://img.shields.io/badge/Amazon%20AWS-232F3E?logo=amazonaws&logoColor=white)](https://aws.amazon.com/)
 
 ## Repository Structure
 
